@@ -1,0 +1,37 @@
+{
+  "compilerOptions": {
+    "sourceMap": true,
+    "removeComments": true,
+    "moduleResolution": "node",
+    "strict": true,
+    "noImplicitAny": true,
+    "declaration": true,
+    "experimentalDecorators": true,
+    "rootDir": "./src",
+    "outDir": "./lib",
+    "module": "esnext",
+    "target": "esnext",
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "lib": [
+      "es6",
+      "es2016.array.include",
+      "dom"
+    ],
+    "types": [
+      "react",
+      "react-dom"
+    ],
+    "emitDecoratorMetadata": true,
+    "jsx": "react",
+    "typeRoots": [
+      "./node_modules/@types"
+    ],
+  },
+  "include": [
+    "./src"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
