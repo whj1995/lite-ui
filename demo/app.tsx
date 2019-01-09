@@ -23,8 +23,16 @@ export function App() {
         <Input value={iptValue} onChange={(e) => setIptValue(e.target.value)} />
       </div>
       <div>
-        <h3>Select</h3>
+        <h3>Normal-Select</h3>
         <Select style={{width: 100}} value={sValue} onChange={setSValue} >
+          <Select.Option value='short'>短</Select.Option>
+          <Select.Option value='long'>长长长长长长长长长长长长</Select.Option>
+          <Select.Option value='english'>english</Select.Option>
+        </Select>
+      </div>
+      <div>
+        <h3>Input-Select</h3>
+        <Select style={{width: 100}} mode='input' value={sValue} onChange={setSValue} >
           <Select.Option value='short'>短</Select.Option>
           <Select.Option value='long'>长长长长长长长长长长长长</Select.Option>
           <Select.Option value='english'>english</Select.Option>

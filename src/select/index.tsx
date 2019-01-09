@@ -1,8 +1,11 @@
 import * as React from 'react';
 import './style.styl';
 
+type IMode = 'normal' | 'input';
+
 interface IProps extends React.Props<any> {
   value: string;
+  mode?: IMode;
   style?: React.CSSProperties;
   className?: string;
   onChange: (value: string) => void;
@@ -15,6 +18,7 @@ interface IOptProps extends React.Props<any> {
 }
 
 export const Select = (props: IProps) => {
+  const mode = typeof props.mode === 'undefined' ? 'normal' : props.mode;
   const [expand, setExpand] = React.useState(false);
   const ulRef: React.RefObject<HTMLUListElement> = React.useRef(null);
 
@@ -26,7 +30,10 @@ export const Select = (props: IProps) => {
     (React.Children.toArray(props.children)[0] as React.ReactElement<IOptProps>).props.children
     : element.props.children;
 
-  const onTextClick = () => {
+  const onTextClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (isInput(e.target)) {
+      return;
+    }
     setExpand(!expand);
     setTimeout(() => {
       if (ulRef.current) {
@@ -37,8 +44,17 @@ export const Select = (props: IProps) => {
 
   return (
     <div className={`lite-select ${props.className ? props.className : ''}`} style={{ ...props.style }}>
-      <div className='lite-select-value' onClick={onTextClick}>
-        <div className='lite-select-text'>{text}</div>
+      <div className='lite-select-value' onClick={onTextClick} >
+        {mode === 'normal' && <div className='lite-select-text'>{text}</div>}
+        {
+          mode === 'input' &&
+          <input
+            className='lite-select-ipt'
+            style={{ ...props.style }}
+            value={props.value}
+            onChange={(e) => props.onChange(e.target.value)}
+          />
+        }
         <div className='lite-select-down'></div>
       </div>
       {
@@ -71,4 +87,8 @@ Select.Option = Option;
 
 function Option(_props: IOptProps) {
   return null;
+}
+
+function isInput(el: any): el is HTMLInputElement {
+  return el.nodeName === 'INPUT';
 }
