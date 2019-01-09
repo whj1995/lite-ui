@@ -2,6 +2,7 @@
   "name": "lite-ui",
   "version": "0.0.2",
   "main": "./lib/index.js",
+  "author": "whj1995",
   "scripts": {
     "build": "gulp --gulpfile './build/gulpfile.js'",
     "demo": "webpack-dev-server --config ./demo/webpack.config.js --open"
