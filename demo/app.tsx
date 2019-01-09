@@ -1,9 +1,11 @@
 import * as React from 'react';
-import { AutoWidthInput, Expand, Input, Select } from '../src';
+import { AutoWidthInput, Expand, Input, Select } from '../lib';
 
 export function App() {
   const [iptValue, setIptValue] = React.useState('AutoWidthInput');
   const [sValue, setSValue] = React.useState('english');
+  const ref: React.RefObject<HTMLInputElement> = React.useRef(null);
+
   return (
     <div>
       <div>
@@ -14,7 +16,7 @@ export function App() {
       </div>
       <div>
         <h3>AutoWidthInput</h3>
-        <AutoWidthInput value={iptValue} onChange={(e) => setIptValue(e.target.value)} />
+        <AutoWidthInput ref={ref}  value={iptValue} onChange={(e) => setIptValue(e.target.value)} />
       </div>
       <div>
         <h3>Input</h3>

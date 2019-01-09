@@ -17,18 +17,19 @@ const iptStyle: React.CSSProperties = {
   fontFamily: 'Arial'
 };
 
-export function AutoWidthInput(props: React.InputHTMLAttributes<HTMLInputElement>) {
+export const AutoWidthInput = React.forwardRef((props: React.InputHTMLAttributes<HTMLInputElement>, ref: React.Ref<HTMLInputElement>) => {
   const [width, setWidth] = React.useState(12);
-  const ref: React.RefObject<HTMLSpanElement> = React.useRef(null);
+  const hiddenRef: React.RefObject<HTMLSpanElement> = React.useRef(null);
   const { onChange, style, type, ...otherProps } = props;
 
   React.useEffect(() => {
-    setWidth(parseInt(window.getComputedStyle(ref.current!).width as string, 10) + 13);
+    setWidth(parseInt(window.getComputedStyle(hiddenRef.current!).width as string, 10) + 13);
   }, [props.value]);
 
   return (
     <div className={props.className} style={{ display: 'inline-block', ...props.style }}>
       <Input
+        ref={ref}
         type='text'
         style={{ width, ...iptStyle, ...props.style }}
         {...otherProps}
@@ -37,7 +38,7 @@ export function AutoWidthInput(props: React.InputHTMLAttributes<HTMLInputElement
           props.onChange && props.onChange(e);
         }}
       />
-      <span style={hiddenSpanStyle} ref={ref}>{props.value}</span>
+      <span style={hiddenSpanStyle} ref={hiddenRef}>{props.value}</span>
     </div>
   );
-}
+});
