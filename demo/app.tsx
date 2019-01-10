@@ -3,7 +3,7 @@ import { AutoWidthInput, Expand, Input, Select } from '../lib';
 
 export function App() {
   const [iptValue, setIptValue] = React.useState('AutoWidthInput');
-  const [sValue, setSValue] = React.useState('english');
+  const [sValue, setSValue] = React.useState('');
   const ref: React.RefObject<HTMLInputElement> = React.useRef(null);
 
   return (
@@ -25,14 +25,14 @@ export function App() {
       <div>
         <h3>Normal-Select</h3>
         <Select style={{width: 100}} value={sValue} onChange={setSValue} >
-          <Select.Option value='short'>短</Select.Option>
+          <Select.Option value=''>无</Select.Option>
           <Select.Option value='long'>长长长长长长长长长长长长</Select.Option>
           <Select.Option value='english'>english</Select.Option>
         </Select>
       </div>
       <div>
         <h3>Input-Select</h3>
-        <Select style={{width: 100}} mode='input' value={sValue} onChange={setSValue} >
+        <Select placeholder='placeholder' style={{width: 100}} mode='input' value={sValue} onChange={setSValue} >
           <Select.Option value='short'>短</Select.Option>
           <Select.Option value='long'>长长长长长长长长长长长长</Select.Option>
           <Select.Option value='english'>english</Select.Option>

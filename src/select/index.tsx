@@ -8,6 +8,7 @@ interface IProps extends React.Props<any> {
   mode?: IMode;
   style?: React.CSSProperties;
   className?: string;
+  placeholder?: string;
   onChange: (value: string) => void;
 }
 
@@ -54,6 +55,7 @@ export const Select = (props: IProps) => {
         {
           mode === 'input' &&
           <input
+            placeholder={props.placeholder}
             className='lite-select-ipt'
             style={{ ...props.style }}
             value={props.value}
