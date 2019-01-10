@@ -21,14 +21,19 @@ export const Select = (props: IProps) => {
   const mode = typeof props.mode === 'undefined' ? 'normal' : props.mode;
   const [expand, setExpand] = React.useState(false);
   const ulRef: React.RefObject<HTMLUListElement> = React.useRef(null);
+  const childs = React.Children.toArray(props.children) as Array<React.ReactElement<IOptProps>>;
 
-  const element = (React.Children.toArray(props.children).find((child) => {
+  const element = childs.find((child) => {
     return (child as React.ReactElement<IOptProps>).props.value === props.value;
-  }) as React.ReactElement<IOptProps>);
+  }) as React.ReactElement<IOptProps>;
 
-  const text = typeof element === 'undefined' ?
-    (React.Children.toArray(props.children)[0] as React.ReactElement<IOptProps>).props.children
-    : element.props.children;
+  let text = '';
+  if (typeof element !== 'undefined' && typeof element.props.children === 'string') {
+    text = element.props.children;
+  }
+  if (typeof element === 'undefined' && childs.length !== 0 && typeof childs[0].props.children === 'string') {
+    text = childs[0].props.children;
+  }
 
   const onTextClick = (e: React.MouseEvent<HTMLDivElement>) => {
     if (isInput(e.target)) {
