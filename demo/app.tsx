@@ -10,13 +10,13 @@ export function App() {
     <div>
       <div>
         <h3>Expand</h3>
-        <Expand title='title' style={{ width: 300 }}>
+        <Expand expandColor='#515151' titleColor='#fff' headerColor='rgba(0, 0, 0, 0.2)' title='title' style={{ width: 300 }}>
           <span>xxxxxxxxxxxx</span>
         </Expand>
       </div>
       <div>
         <h3>AutoWidthInput</h3>
-        <AutoWidthInput ref={ref}  value={iptValue} onChange={(e) => setIptValue(e.target.value)} />
+        <AutoWidthInput ref={ref} value={iptValue} onChange={(e) => setIptValue(e.target.value)} />
       </div>
       <div>
         <h3>Input</h3>
@@ -24,7 +24,7 @@ export function App() {
       </div>
       <div>
         <h3>Normal-Select</h3>
-        <Select style={{width: 100}} value={sValue} onChange={setSValue} >
+        <Select style={{ width: 100 }} value={sValue} onChange={setSValue} >
           <Select.Option value=''>无</Select.Option>
           <Select.Option value='long'>长长长长长长长长长长长长</Select.Option>
           <Select.Option value='english'>english</Select.Option>
@@ -32,7 +32,7 @@ export function App() {
       </div>
       <div>
         <h3>Input-Select</h3>
-        <Select placeholder='placeholder' style={{width: 100}} mode='input' value={sValue} onChange={setSValue} >
+        <Select placeholder='placeholder' style={{ width: 100 }} mode='input' value={sValue} onChange={setSValue} >
           <Select.Option value='short'>短</Select.Option>
           <Select.Option value='long'>长长长长长长长长长长长长</Select.Option>
           <Select.Option value='english'>english</Select.Option>
