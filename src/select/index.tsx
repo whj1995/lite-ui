@@ -78,7 +78,7 @@ export const Select = (props: IProps) => {
                 <li
                   style={{ ...el.props.style }}
                   className={`lite-select-li ${el.props.className ? el.props.className : ''}`}
-                  onClick={() => { props.onChange(el.props.value); setExpand(false); }}  >
+                  onClick={() => { el.props.value !== props.value && props.onChange(el.props.value); setExpand(false); }}  >
                   {el.props.children}
                 </li>
               );
