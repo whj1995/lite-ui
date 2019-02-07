@@ -1,6 +1,6 @@
 {
   "name": "lite-ui",
-  "version": "0.0.8",
+  "version": "0.1.0",
   "main": "./lib/index.js",
   "author": "whj1995",
   "scripts": {
@@ -11,12 +11,12 @@
     "lib"
   ],
   "peerDependencies": {
-    "react": "16.7.0-alpha.2",
-    "react-dom": "16.7.0-alpha.2"
+    "react": "^16.8.1",
+    "react-dom": "^16.8.1"
   },
   "devDependencies": {
-    "@types/react": "^16.7.18",
-    "@types/react-dom": "^16.0.11",
+    "@types/react": "^16.8.2",
+    "@types/react-dom": "^16.8.0",
     "css-loader": "^2.1.0",
     "del": "^3.0.0",
     "gulp": "^4.0.0",
@@ -24,10 +24,10 @@
     "gulp-stylus": "^2.7.0",
     "gulp-typescript": "^5.0.0",
     "merge2": "^1.2.3",
-    "react": "16.7.0-alpha.2",
-    "react-dom": "16.7.0-alpha.2",
+    "react": "^16.8.1",
+    "react-dom": "^16.8.1",
     "tslint": "^5.12.0",
-    "typescript": "^3.2.2",
+    "typescript": "^3.3.1",
     "webpack": "^4.27.1",
     "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.1.10",
