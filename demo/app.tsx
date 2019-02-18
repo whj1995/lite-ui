@@ -1,9 +1,10 @@
 import * as React from 'react';
-import { AutoWidthInput, Expand, Input, Select } from '../lib';
+import { AutoWidthInput, Expand, Input, Select, Switch } from '../lib';
 
 export function App() {
   const [iptValue, setIptValue] = React.useState('AutoWidthInput');
   const [sValue, setSValue] = React.useState('');
+  const [checked, setChecked] = React.useState(false);
   const ref: React.RefObject<HTMLInputElement> = React.useRef(null);
 
   return (
@@ -37,6 +38,10 @@ export function App() {
           <Select.Option value='long'>长长长长长长长长长长长长</Select.Option>
           <Select.Option value='english'>english</Select.Option>
         </Select>
+      </div>
+      <div>
+        <h3>switch</h3>
+        <Switch checkedText='开' unCheckedText='off' checked={checked} onChange={(_checked) => setChecked(_checked)} />
       </div>
     </div>
   );

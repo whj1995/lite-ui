@@ -1,0 +1,37 @@
+.lite-switch
+  position: relative;
+  display: inline-block
+  width: 40px
+  height: 18px
+  background: red
+  border-radius: 9px
+  background: rgba(0,0,0,0.25)
+  cursor: pointer
+  transition: all .36s cubic-bezier(.78, .14, .15, .86);
+  .lite-switch-text
+    position: absolute
+    height: 18px;
+    line-height: 18px;
+    color: #fff
+    font-size: 12px
+    left: 21px
+    user-select: none
+  &::after
+    position: absolute
+    display: block
+    content: ''
+    box-shadow: 0 2px 4px 0 rgba(0,35,11,0.2)
+    background: #fff
+    height: 16px
+    width: 16px
+    border-radius: 8px
+    margin: 1px 2px
+    cursor: pointer
+    transition: all .36s cubic-bezier(.78, .14, .15, .86); 
+
+.lite-switch-checked
+  background: #1890ff
+  .lite-switch-text
+    left: 7px
+  &::after
+    transform: translateX(20px);
