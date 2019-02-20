@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { AutoWidthInput, Expand, Input, Select, Switch } from '../lib';
+import { AutoWidthInput, Expand, Input, Radio, Select, Switch } from '../src';
 
 export function App() {
   const [iptValue, setIptValue] = React.useState('AutoWidthInput');
@@ -42,6 +42,10 @@ export function App() {
       <div>
         <h3>switch</h3>
         <Switch checkedText='开' unCheckedText='off' checked={checked} onChange={(_checked) => setChecked(_checked)} />
+      </div>
+      <div>
+        <h3>radio</h3>
+        <Radio>xxx</Radio>
       </div>
     </div>
   );
