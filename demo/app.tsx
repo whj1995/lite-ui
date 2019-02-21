@@ -1,10 +1,11 @@
 import * as React from 'react';
-import { AutoWidthInput, Expand, Input, Radio, Select, Switch } from '../src';
+import { AutoWidthInput, Expand, Input, Radio, Select, Switch } from '../lib';
 
 export function App() {
   const [iptValue, setIptValue] = React.useState('AutoWidthInput');
   const [sValue, setSValue] = React.useState('');
   const [checked, setChecked] = React.useState(false);
+  const [radio, setRadio] = React.useState('BB');
   const ref: React.RefObject<HTMLInputElement> = React.useRef(null);
 
   return (
@@ -45,7 +46,11 @@ export function App() {
       </div>
       <div>
         <h3>radio</h3>
-        <Radio>xxx</Radio>
+        <Radio.Group value={radio} onChange={setRadio}>
+          <Radio value='AA'>A</Radio>
+          <Radio value='BB'>B</Radio>
+          <Radio value='CC'>C</Radio>
+        </Radio.Group>
       </div>
     </div>
   );

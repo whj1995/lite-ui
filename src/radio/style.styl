@@ -1,25 +1,39 @@
-.lite-radio
+.lite-radio-wrapper
   display: inline-block
-  .lite-radio-ipt-wrapper
+  height: 16px
+  .lite-radio
     position: relative
-    border: 1px solid #d9d9d9
     width: 14px
     height: 14px
+    border: 1px solid #d9d9d9
+    background: #fff
     display: inline-block
     border-radius: 7px
-    .lite-radio-checked
+    transition: all .3s
+    .lite-radio-dot
       position: absolute
       display: inline-block
-      background: #1890ff
       border-radius: 5px
       width: 8px
       height 8px
       top: 3px
       left: 3px
-    .lite-radio-ipt
-      position: absolute
-      margin: 0
+      transition: all .3s
   .lite-radio-label
+    position: relative
+    bottom: 4px
     margin: 0 2px
     font-size: 14px
     color: #000
+
+.lite-radio-wrapper-checked
+  .lite-radio
+    border-color: #1890ff
+    .lite-radio-dot
+      background: #1890ff
+
+.lite-radio-group
+  display: flex
+  justify-items: center
+  .lite-radio-wrapper
+    margin: 0 8px 0 0
