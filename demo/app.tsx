@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { AutoWidthInput, Checkbox, Expand, Input, Radio, Select, Switch } from '../src';
+import { AutoWidthInput, Checkbox, Expand, Input, Radio, Select, Switch } from '../lib';
 
 export function App() {
   const [iptValue, setIptValue] = React.useState('AutoWidthInput');

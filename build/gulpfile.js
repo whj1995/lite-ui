@@ -17,7 +17,7 @@ const tsProject = tsGulp.createProject(config.tsConfig, {
               const pathInfo = path.parse(cNode.moduleSpecifier.text)
               if (pathInfo.ext === '.styl') {
                 const token = ts.createToken(10);
-                token.text =  `./${pathInfo.name}.css`;
+                token.text = './' + path.join(pathInfo.dir, `${pathInfo.name}.css`);
                 cNode.moduleSpecifier = token;
               }
             }
