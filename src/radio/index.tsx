@@ -28,9 +28,9 @@ export function Radio(props: IRadioProps) {
   );
 }
 
-Radio.Group = Group;
+Radio.Group = RadioGroup;
 
-function Group(props: IRadioGroupProps) {
+function RadioGroup(props: IRadioGroupProps) {
   return (
     <context.Provider value={{ value: props.value, onChange: props.onChange }}>
       <div className='lite-radio-group'>
