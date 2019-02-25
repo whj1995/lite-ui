@@ -1,11 +1,12 @@
 import * as React from 'react';
-import { AutoWidthInput, Checkbox, Expand, Input, Radio, Select, Switch } from '../lib';
+import { AutoWidthInput, Checkbox, Expand, Input, Radio, Select, Slider, Switch } from '../src';
 
 export function App() {
   const [iptValue, setIptValue] = React.useState('AutoWidthInput');
   const [sValue, setSValue] = React.useState('');
   const [checked, setChecked] = React.useState(false);
   const [radio, setRadio] = React.useState('BB');
+  const [slider, setSlider] = React.useState(0);
   const ref: React.RefObject<HTMLInputElement> = React.useRef(null);
 
   return (
@@ -54,10 +55,14 @@ export function App() {
           </Radio.Group>
         </div>
       </div>
-      <div style={{margin: '0 0 0 50px'}}>
+      <div style={{ margin: '0 0 0 50px' }}>
         <div>
           <h3>checkbox</h3>
           <Checkbox checked={checked} onChange={setChecked}>开</Checkbox>
+        </div>
+        <div>
+          <h3>slider</h3>
+          <Slider max={10} min={-5} step={1} value={slider} onChange={(value) => setSlider(value)}></Slider>
         </div>
       </div>
     </div>
