@@ -1,2 +1,35 @@
 .lite-slider
+  box-sizing: border-box
   display: inline-block
+  position: relative
+  width: 100%
+  height: 14px
+  padding: 5px 0px
+  cursor: pointer
+  .lite-slider-rail
+    position: absolute
+    width: 100%
+    height: 4px
+    background: #efefef
+  .lite-slider-track
+    position: absolute
+    background:#91d5ff
+    height: 4px
+  .lite-slider-handler
+    position: absolute
+    width: 10px
+    height: 10px
+    background: rgba(24, 144, 255, 0.8)
+    border-radius: 5px
+    margin-top: -3px
+    margin-left: -5px
+    &:hover
+      background: rgba(24, 144, 255, 1)
+
+.lite-slider
+  &:hover
+    .lite-slider-rail
+      background: #e1e1e1
+    .lite-slider-track
+      background: #69c0ff
+      

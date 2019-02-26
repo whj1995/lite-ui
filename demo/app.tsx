@@ -6,7 +6,7 @@ export function App() {
   const [sValue, setSValue] = React.useState('');
   const [checked, setChecked] = React.useState(false);
   const [radio, setRadio] = React.useState('BB');
-  const [slider, setSlider] = React.useState(0);
+  const [slider, setSlider] = React.useState(-5);
   const ref: React.RefObject<HTMLInputElement> = React.useRef(null);
 
   return (
@@ -60,9 +60,9 @@ export function App() {
           <h3>checkbox</h3>
           <Checkbox checked={checked} onChange={setChecked}>开</Checkbox>
         </div>
-        <div>
+        <div style={{ width: '300px', position: 'relative' }}>
           <h3>slider</h3>
-          <Slider max={10} min={-5} step={1} value={slider} onChange={(value) => setSlider(value)}></Slider>
+          <Slider max={10} min={-5} step={3} value={slider} onChange={(value) => setSlider(value)}></Slider>
         </div>
       </div>
     </div>
