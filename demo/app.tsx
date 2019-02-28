@@ -1,12 +1,12 @@
 import * as React from 'react';
-import { AutoWidthInput, Checkbox, Expand, Input, Radio, Select, Slider, Switch } from '../src';
+import { AutoWidthInput, Checkbox, Expand, Input, Radio, Select, Slider, Switch } from '../lib';
 
 export function App() {
   const [iptValue, setIptValue] = React.useState('AutoWidthInput');
   const [sValue, setSValue] = React.useState('');
   const [checked, setChecked] = React.useState(false);
   const [radio, setRadio] = React.useState('BB');
-  const [slider, setSlider] = React.useState(-5);
+  const [slider, setSlider] = React.useState(0);
   const ref: React.RefObject<HTMLInputElement> = React.useRef(null);
 
   return (
@@ -62,7 +62,9 @@ export function App() {
         </div>
         <div style={{ width: '300px', position: 'relative' }}>
           <h3>slider</h3>
-          <Slider max={10} min={-5} step={3} value={slider} onChange={(value) => setSlider(value)}></Slider>
+          <Slider max={10} min={-5} value={slider} onChange={(value) => setSlider(value)}></Slider>
+          <h3>slider step=2</h3>
+          <Slider max={10} min={-5} step={2} value={slider} onChange={(value) => setSlider(value)}></Slider>
         </div>
       </div>
     </div>

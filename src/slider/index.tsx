@@ -14,6 +14,15 @@ export function Slider(props: IProps) {
   const sliderRef: React.MutableRefObject<HTMLDivElement | null> = React.useRef(null);
   const total = props.max - props.min;
   const offset = ((props.value - props.min) / total) * 100 + '%';
+  const points: number[] = [];
+
+  if (typeof props.step !== 'undefined') {
+    const val = props.step / 2;
+    points.push(props.min);
+    while (points[points.length - 1] <= props.max - val) {
+      points.push(points[points.length - 1] + val);
+    }
+  }
 
   const calculateValue = (x: number) => {
     if (!sliderRef.current) {
@@ -25,10 +34,17 @@ export function Slider(props: IProps) {
     value > props.max && (value = props.max);
     value < props.min && (value = props.min);
 
-    if (typeof props.step !== 'undefined' && Math.abs(value - props.value) < props.step) {
+    for (let i = 1; i < points.length; i++) {
+      const pre = points[i - 1];
+      const next = points[i];
+      if (pre <= value && value <= next) {
+        value = i % 2 === 0 ? next : pre;
+        break;
+      }
+    }
+    if (props.value === value) {
       return;
     }
-
     return value;
   };
 
@@ -36,7 +52,7 @@ export function Slider(props: IProps) {
     if (!sliderRef.current) {
       return;
     }
-
+    sliderRef.current.focus();
     const value = calculateValue(e.clientX);
     typeof value !== 'undefined' && props.onChange(value);
   };
@@ -61,7 +77,7 @@ export function Slider(props: IProps) {
   });
 
   return (
-    <div ref={sliderRef} className='lite-slider' onMouseDown={handleMouseDown} >
+    <div ref={sliderRef} tabIndex={1} className='lite-slider' onBlur={() => beginMove.current = false} onMouseDown={handleMouseDown} >
       <div className='lite-slider-rail'></div>
       <div className='lite-slider-track' style={{ width: offset }}>
       </div>
