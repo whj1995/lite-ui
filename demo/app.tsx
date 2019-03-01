@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { AutoWidthInput, Checkbox, Expand, Input, Radio, Select, Slider, Switch } from '../lib';
+import { AutoWidthInput, Button, Checkbox, Input, Radio, Select, Slider, Switch } from '../lib';
 
 export function App() {
   const [iptValue, setIptValue] = React.useState('AutoWidthInput');
@@ -12,12 +12,6 @@ export function App() {
   return (
     <div style={{ display: 'flex' }}>
       <div>
-        <div>
-          <h3>Expand</h3>
-          <Expand expandColor='#515151' titleColor='#fff' headerColor='rgba(0, 0, 0, 0.2)' title='title' style={{ width: 300 }}>
-            <span>xxxxxxxxxxxx</span>
-          </Expand>
-        </div>
         <div>
           <h3>AutoWidthInput</h3>
           <AutoWidthInput ref={ref} value={iptValue} onChange={(e) => setIptValue(e.target.value)} />
@@ -65,6 +59,11 @@ export function App() {
           <Slider max={10} min={-5} value={slider} onChange={(value) => setSlider(value)}></Slider>
           <h3>slider step=2</h3>
           <Slider max={10} min={-5} step={2} value={slider} onChange={(value) => setSlider(value)}></Slider>
+        </div>
+        <div>
+          <h3>button</h3>
+          <Button>按钮</Button>
+          <Button>button</Button>
         </div>
       </div>
     </div>

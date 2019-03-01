@@ -1,17 +1,18 @@
 .lite-switch
+  box-sizing: border-box
   position: relative;
   display: inline-block
   width: 40px
-  height: 18px
+  height: 22px
   background: red
-  border-radius: 9px
+  border-radius: 11px
   background: rgba(0,0,0,0.25)
   cursor: pointer
   transition: all .36s cubic-bezier(.78, .14, .15, .86);
   .lite-switch-text
     position: absolute
-    height: 18px;
-    line-height: 18px;
+    height: 22px;
+    line-height: 22px;
     color: #fff
     font-size: 12px
     left: 21px
@@ -22,10 +23,10 @@
     content: ''
     box-shadow: 0 2px 4px 0 rgba(0,35,11,0.2)
     background: #fff
-    height: 16px
-    width: 16px
+    height: 18px
+    width: 18px
     border-radius: 8px
-    margin: 1px 2px
+    margin: 2px 2px
     cursor: pointer
     transition: all .36s cubic-bezier(.78, .14, .15, .86); 
 
@@ -34,4 +35,4 @@
   .lite-switch-text
     left: 7px
   &::after
-    transform: translateX(20px);
+    transform: translateX(18px);

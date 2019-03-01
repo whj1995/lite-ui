@@ -1,4 +1,5 @@
 .lite-checkbox
+  box-sizing: border-box
   display: inline-block
   position: relative
   cursor: pointer
@@ -7,15 +8,15 @@
     display: inline-block
     background: #fff
     border: 1px solid #d9d9d9
-    height: 16px
-    width: 16px
+    height: 18px
+    width: 18px
     transition: all .1s cubic-bezier(.71, -0.46, .88, .6),opacity .1s
     &:after
       content: ''
       display: inline-block
       width: 5px
       height: 9px
-      transform: translate(50%, -30%) rotate(45deg)
+      transform: translate(55%, -20%) rotate(45deg)
       opacity: 0
       transition: all .1s cubic-bezier(.71, -0.46, .88, .6),opacity .1s
   .lite-checkbox-label
@@ -23,8 +24,9 @@
     font-size: 14px
     line-height: 14px
     position: relative
-    top: -2px
+    top: -1px
     margin: 0 4px
+    color: rgba(0,0,0,0.65)
 
 .lite-checkbox-checked
   .lite-checkbox-box
