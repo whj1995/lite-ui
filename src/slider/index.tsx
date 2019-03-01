@@ -6,7 +6,9 @@ interface IProps {
   min: number;
   step?: number;
   value: number;
-  onChange: (value: number) => void;
+  onChange?: (value: number) => void;
+  style?: React.CSSProperties;
+  className?: string;
 }
 
 export function Slider(props: IProps) {
@@ -54,7 +56,7 @@ export function Slider(props: IProps) {
     }
     sliderRef.current.focus();
     const value = calculateValue(e.clientX);
-    typeof value !== 'undefined' && props.onChange(value);
+    typeof value !== 'undefined' && props.onChange && props.onChange(value);
   };
 
   const handleMouseMove = (e: MouseEvent) => {
@@ -62,7 +64,7 @@ export function Slider(props: IProps) {
       return;
     }
     const value = calculateValue(e.clientX);
-    typeof value !== 'undefined' && props.onChange(value);
+    typeof value !== 'undefined' && props.onChange && props.onChange(value);
   };
 
   React.useEffect(() => {
@@ -77,7 +79,14 @@ export function Slider(props: IProps) {
   });
 
   return (
-    <div ref={sliderRef} tabIndex={1} className='lite-slider' onBlur={() => beginMove.current = false} onMouseDown={handleMouseDown} >
+    <div
+      ref={sliderRef}
+      tabIndex={1}
+      style={props.style}
+      className={`lite-slider ${typeof props.className === 'undefined' ? '' : props.className}`}
+      onBlur={() => beginMove.current = false}
+      onMouseDown={handleMouseDown}
+    >
       <div className='lite-slider-rail'></div>
       <div className='lite-slider-track' style={{ width: offset }}>
       </div>

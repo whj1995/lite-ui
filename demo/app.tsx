@@ -56,7 +56,7 @@ export function App() {
         </div>
         <div style={{ width: '300px', position: 'relative' }}>
           <h3>slider</h3>
-          <Slider max={10} min={-5} value={slider} onChange={(value) => setSlider(value)}></Slider>
+          <Slider style={{ width: 200 }} max={10} min={-5} value={slider} onChange={(value) => setSlider(value)}></Slider>
           <h3>slider step=2</h3>
           <Slider max={10} min={-5} step={2} value={slider} onChange={(value) => setSlider(value)}></Slider>
         </div>

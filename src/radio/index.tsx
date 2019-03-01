@@ -3,11 +3,15 @@ import './style.styl';
 
 interface IRadioProps extends React.Props<any> {
   value: any;
+  style?: React.CSSProperties;
+  className?: string;
 }
 
 interface IRadioGroupProps extends React.Props<any> {
   value: any;
-  onChange: (value: any) => void;
+  onChange?: (value: any) => void;
+  style?: React.CSSProperties;
+  className?: string;
 }
 
 const context = React.createContext({ value: '', onChange: (_value: any) => {/** */ } });
@@ -17,7 +21,11 @@ export function Radio(props: IRadioProps) {
 
   return (
     <label
-      className={`lite-radio-wrapper ${value === props.value ? 'lite-radio-wrapper-checked' : ''}`}
+      className={
+        `lite-radio-wrapper ${value === props.value ? 'lite-radio-wrapper-checked' : ''}
+        ${typeof props.className === 'undefined' ? '' : props.className}`
+      }
+      style={props.style}
       onClick={() => onChange(props.value)}
     >
       <span className='lite-radio'>
@@ -32,8 +40,8 @@ Radio.Group = RadioGroup;
 
 function RadioGroup(props: IRadioGroupProps) {
   return (
-    <context.Provider value={{ value: props.value, onChange: props.onChange }}>
-      <div className='lite-radio-group'>
+    <context.Provider value={{ value: props.value, onChange: props.onChange! }}>
+      <div style={props.style} className={`lite-radio-group  ${typeof props.className === 'undefined' ? '' : props.className}`}>
         {props.children}
       </div>
     </context.Provider>
