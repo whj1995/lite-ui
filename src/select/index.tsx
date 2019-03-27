@@ -9,7 +9,7 @@ interface IProps extends React.Props<any> {
   style?: React.CSSProperties;
   className?: string;
   placeholder?: string;
-  onChange: (value: string) => void;
+  onChange?: (value: string) => void;
 }
 
 interface IOptProps extends React.Props<any> {
@@ -59,7 +59,7 @@ export const Select = (props: IProps) => {
             className='lite-select-ipt'
             style={{ ...props.style }}
             value={props.value}
-            onChange={(e) => props.onChange(e.target.value)}
+            onChange={(e) => props.onChange && props.onChange(e.target.value)}
           />
         }
         <div className='lite-select-down'></div>
@@ -78,7 +78,7 @@ export const Select = (props: IProps) => {
                 <li
                   style={{ ...el.props.style }}
                   className={`lite-select-li ${el.props.className ? el.props.className : ''}`}
-                  onClick={() => { el.props.value !== props.value && props.onChange(el.props.value); setExpand(false); }}  >
+                  onClick={() => { el.props.value !== props.value && props.onChange && props.onChange(el.props.value); setExpand(false); }}  >
                   {el.props.children}
                 </li>
               );
