@@ -26,7 +26,7 @@ export function Radio(props: IRadioProps) {
         ${typeof props.className === 'undefined' ? '' : props.className}`
       }
       style={props.style}
-      onClick={() => onChange(props.value)}
+      onClick={() => props.value !== value && onChange(props.value)}
     >
       <span className='lite-radio'>
         <span className='lite-radio-dot' />
