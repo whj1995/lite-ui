@@ -22,7 +22,7 @@ export function App() {
         </div>
         <div>
           <h3>Normal-Select</h3>
-          <Select expand={checked} onDownClick={setChecked} style={{ width: 100 }} value={sValue} onChange={setSValue} >
+          <Select onBlur={() => setChecked(false)} expand={checked} onDownClick={setChecked} style={{ width: 100 }} value={sValue} onChange={setSValue} >
             <Select.Option value=''>无</Select.Option>
             <Select.Option value='long'>长长长长长长长长长长长长</Select.Option>
             <Select.Option value='english'>english</Select.Option>

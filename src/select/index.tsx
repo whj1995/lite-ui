@@ -12,6 +12,7 @@ interface IProps extends React.Props<any> {
   expand?: boolean;
   onChange?: (value: string) => void;
   onDownClick?: (expand: boolean) => void;
+  onBlur?: () => void;
 }
 
 interface IOptProps extends React.Props<any> {
@@ -82,7 +83,7 @@ export const Select = (props: IProps) => {
       {
         <ul hidden={!expand} ref={ulRef} className='lite-select-ul'
           tabIndex={0}
-          onBlur={() => setTimeout(() => { setExpand(false); }, 100)}>
+          onBlur={() => setTimeout(() => { props.onBlur && props.onBlur(); setExpand(false); }, 100)}>
           {
             React.Children.map(props.children, (Opt) => {
               const el = (Opt as React.ReactElement<IOptProps>);
