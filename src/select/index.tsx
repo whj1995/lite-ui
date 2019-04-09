@@ -9,7 +9,9 @@ interface IProps extends React.Props<any> {
   style?: React.CSSProperties;
   className?: string;
   placeholder?: string;
+  expand?: boolean;
   onChange?: (value: string) => void;
+  onDownClick?: (expand: boolean) => void;
 }
 
 interface IOptProps extends React.Props<any> {
@@ -20,7 +22,11 @@ interface IOptProps extends React.Props<any> {
 
 export const Select = (props: IProps) => {
   const mode = typeof props.mode === 'undefined' ? 'normal' : props.mode;
-  const [expand, setExpand] = React.useState(false);
+
+  // tslint:disable-next-line: prefer-const
+  let [expand, setExpand] = React.useState(false);
+  expand = typeof props.expand === 'undefined' ? expand : props.expand;
+
   const ulRef: React.RefObject<HTMLUListElement> = React.useRef(null);
   const childs = React.Children.toArray(props.children) as Array<React.ReactElement<IOptProps>>;
 
@@ -40,12 +46,21 @@ export const Select = (props: IProps) => {
     if (isInput(e.target)) {
       return;
     }
-    setExpand(!expand);
+    props.onDownClick && props.onDownClick(!expand);
+    typeof props.expand === 'undefined' && setExpand(!expand);
     setTimeout(() => {
       if (ulRef.current) {
         ulRef.current.focus();
       }
     }, 0);
+  };
+
+  const handleSelectClick = (el: React.ReactElement<IOptProps>) => {
+    if (el.props.value !== props.value && props.onChange) {
+      props.onChange(el.props.value);
+    }
+    props.onDownClick && props.onDownClick(!expand);
+    typeof props.expand === 'undefined' && setExpand(false);
   };
 
   return (
@@ -78,7 +93,7 @@ export const Select = (props: IProps) => {
                 <li
                   style={{ ...el.props.style }}
                   className={`lite-select-li ${el.props.className ? el.props.className : ''}`}
-                  onClick={() => { el.props.value !== props.value && props.onChange && props.onChange(el.props.value); setExpand(false); }}  >
+                  onClick={() => handleSelectClick(el)}  >
                   {el.props.children}
                 </li>
               );
