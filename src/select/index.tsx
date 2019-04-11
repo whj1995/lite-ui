@@ -66,8 +66,8 @@ export const Select = (props: IProps) => {
 
   return (
     <div className={`lite-select ${props.className ? props.className : ''}`} style={{ ...props.style }}>
-      <div className='lite-select-value' onClick={onTextClick} >
-        {mode === 'normal' && <div className='lite-select-text'>{text}</div>}
+      <div className='lite-select-value' >
+        {mode === 'normal' && <div onClick={onTextClick} className='lite-select-text'>{text}</div>}
         {
           mode === 'input' &&
           <input
@@ -78,7 +78,7 @@ export const Select = (props: IProps) => {
             onChange={(e) => props.onChange && props.onChange(e.target.value)}
           />
         }
-        <div className='lite-select-down'></div>
+        <div onClick={onTextClick} className='lite-select-down'></div>
       </div>
       {
         <ul hidden={!expand} ref={ulRef} className='lite-select-ul'
