@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { AutoWidthInput, Button, Checkbox, Input, Radio, Select, Slider, Switch } from '../src';
+import { AutoWidthInput, Button, Checkbox, Collapse, Input, Radio, Select, Slider, Switch, Upload } from '../src';
 
 export function App() {
   const [iptValue, setIptValue] = React.useState('AutoWidthInput');
@@ -60,10 +60,16 @@ export function App() {
           <h3>slider step=2</h3>
           <Slider max={10} min={-5} step={2} value={slider} onChange={(value) => setSlider(value)}></Slider>
         </div>
+        <Collapse title='collapse' >
+          <div>
+            <h3>button</h3>
+            <Button>按钮</Button>
+            <Button>button</Button>
+          </div>
+        </Collapse>
         <div>
-          <h3>button</h3>
-          <Button>按钮</Button>
-          <Button>button</Button>
+          <h3>Upload</h3>
+          <Upload />
         </div>
       </div>
     </div>

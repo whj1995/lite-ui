@@ -6,3 +6,5 @@ export * from './radio';
 export * from './checkbox';
 export * from './slider';
 export * from './button';
+export * from './collapse';
+export * from './upload';
