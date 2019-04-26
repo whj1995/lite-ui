@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { AutoWidthInput, Button, Checkbox, Collapse, Input, Radio, Select, Slider, Switch, Upload } from '../src';
+import { AutoWidthInput, Button, Checkbox, Collapse, Input, Radio, Select, Slider, Switch, Upload, message } from '../src';
 
 export function App() {
   const [iptValue, setIptValue] = React.useState('AutoWidthInput');
@@ -70,6 +70,10 @@ export function App() {
         <div>
           <h3>Upload</h3>
           <Upload />
+        </div>
+        <div>
+          <h3>message</h3>
+          <Button onClick={() => message.send()} >success</Button>
         </div>
       </div>
     </div>
