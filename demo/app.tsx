@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { AutoWidthInput, Button, Checkbox, Collapse, Input, Radio, Select, Slider, Switch, Upload, message } from '../src';
+import { AutoWidthInput, Button, Checkbox, Collapse, Input, message, Radio, Select, Slider, Switch, Upload } from '../lib';
 
 export function App() {
   const [iptValue, setIptValue] = React.useState('AutoWidthInput');
@@ -8,6 +8,7 @@ export function App() {
   const [radio, setRadio] = React.useState('BB');
   const [slider, setSlider] = React.useState(0);
   const ref: React.RefObject<HTMLInputElement> = React.useRef(null);
+  const lastMsgId = React.useRef(-1);
 
   return (
     <div style={{ display: 'flex' }}>
@@ -73,7 +74,11 @@ export function App() {
         </div>
         <div>
           <h3>message</h3>
-          <Button onClick={() => message.send()} >success</Button>
+          <Button onClick={() => { lastMsgId.current = message.success('xxxx'); }} >success</Button>
+          <Button onClick={() => { lastMsgId.current = message.warning('warning'); }} >warning</Button>
+          <Button onClick={() => { lastMsgId.current = message.error('errorr'); }} >error</Button>
+          <Button onClick={() => { lastMsgId.current = message.loading('loading', 9000); }}>loading</Button>
+          <Button onClick={() => message.cancel(lastMsgId.current)} >cancel last msg</Button>
         </div>
       </div>
     </div>
