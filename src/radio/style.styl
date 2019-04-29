@@ -1,6 +1,7 @@
 .lite-radio-wrapper
   box-sizing: border-box
-  display: inline-block
+  display: flex
+  flex-wrap: nowrap
   height: 20px
   .lite-radio
     box-sizing: border-box
@@ -27,6 +28,8 @@
       transition: all .3s
   .lite-radio-label
     position: relative
+    white-space: nowrap
+    line-height: 24px
     bottom: 4px
     margin: 0 4px
     font-size: 14px
