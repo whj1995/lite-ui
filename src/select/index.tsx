@@ -39,8 +39,12 @@ export const Select = (props: IProps) => {
   if (typeof element !== 'undefined' && typeof element.props.children === 'string') {
     text = element.props.children;
   }
-  if (typeof element === 'undefined' && childs.length !== 0 && typeof childs[0].props.children === 'string') {
-    text = childs[0].props.children;
+  if (typeof element === 'undefined') {
+    if (props.mode === 'input') {
+      text = props.value;
+    } else if (childs.length !== 0 && typeof childs[0].props.children === 'string') {
+      text = childs[0].props.children;
+    }
   }
 
   const onTextClick = (e: React.MouseEvent<HTMLDivElement>) => {

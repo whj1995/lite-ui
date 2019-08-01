@@ -1,9 +1,9 @@
 import * as React from 'react';
-import { AutoWidthInput, Button, Checkbox, Collapse, Input, message, Radio, Select, Slider, Switch, Upload } from '../lib';
+import { AutoWidthInput, Button, Checkbox, Collapse, Input, message, Radio, Select, Slider, Switch, Upload } from '../src';
 
 export function App() {
   const [iptValue, setIptValue] = React.useState('AutoWidthInput');
-  const [sValue, setSValue] = React.useState('');
+  const [sValue, setSValue] = React.useState('short');
   const [checked, setChecked] = React.useState(false);
   const [radio, setRadio] = React.useState('BB');
   const [slider, setSlider] = React.useState(0);
