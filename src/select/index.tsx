@@ -74,7 +74,7 @@ export const Select = (props: IProps) => {
             placeholder={props.placeholder}
             className='lite-select-ipt'
             style={{ ...props.style }}
-            value={props.value}
+            value={text}
             onChange={(e) => props.onChange && props.onChange(e.target.value)}
           />
         }

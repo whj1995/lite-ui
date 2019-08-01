@@ -61,12 +61,14 @@ export function App() {
           <h3>slider step=2</h3>
           <Slider max={10} min={-5} step={2} value={slider} onChange={(value) => setSlider(value)}></Slider>
         </div>
-        <Collapse title='collapse' >
-          <div>
-            <h3>button</h3>
-            <Button>按钮</Button>
-            <Button>button</Button>
-          </div>
+        <Collapse title='collapse' iconPosition='left' >
+          <Collapse title='collapse' iconPosition='right' >
+            <div>
+              <h3>button</h3>
+              <Button>按钮</Button>
+              <Button>button</Button>
+            </div>
+          </Collapse>
         </Collapse>
         <div>
           <h3>Upload</h3>
